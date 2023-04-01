@@ -1,0 +1,35 @@
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 5px;
+}
+
+.card{
+    height: 220px;
+    border-radius: 8px;
+}
+
+.boton{
+    display: flex;
+    align-self: center;
+}
+
+.relleno{
+    background-color: #adb5bd;
+}
+.relleno:hover{
+    background-color: aliceblue;
+}
+
+.colores{
+    background-color:#adb5bd;
+    text-align: center;
+}
+.colorestr{
+    background-color: azure;
+    text-align: center;
+}
+
+.fondo{
+    background-color: #CD6155;
+}
