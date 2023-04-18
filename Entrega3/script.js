@@ -130,7 +130,7 @@ const botonFinalizar = document.querySelector('#finalizar')
 const thead = document.querySelector('thead')
 const tbody = document.querySelector('tbody')
 botonFinalizar.onclick = () => {
-    divAeronaves.remove()
+    divProductos.remove()
     botonFinalizar.remove()
     thead.innerHTML = `<tr class="colores">
 <th scope="col">ID</th>

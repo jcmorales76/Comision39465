@@ -1,5 +1,5 @@
 const divProducts = document.getElementById('productos')
-const finishButton = document.getElementById('finalizar')
+//const finishButton = document.getElementById('finalizar')
 
 //funcion que ejecute el fetch all products
 
@@ -77,10 +77,41 @@ const removeProduct = (id) => {
 
     console.log(cart);
 
+//Finalizar compra
+
+//boton finalizar compra
+
+const botonFinalizar = document.querySelector('#finalizar')
+const thead = document.querySelector('thead')
+const tbody = document.querySelector('tbody')
+botonFinalizar.onclick = () => {
+    divProducts.remove()
+    botonFinalizar.remove()
+    thead.innerHTML = `<tr class="colores">
+<th scope="col">ID</th>
+<th scope="col">TITLE</th>
+<th scope="col">PRICE</th>
+<th scope="col">CATEGORY</th>
+<th scope="col">CANTIDAD</th>
+</tr>`
+
+    cart.forEach(prod => {
+        tbody.innerHTML += `
+    <tr class="colorestr">
+        <td>${prod.id}</td>
+        <td>${prod.title}</td>
+        <td>${prod.price}</td>
+        <td>${prod.category}</td>
+        <td>${prod.quantity}</td>
+    </tr>`
+    })
 }
 
+}
+//mensajes con SweetAlert
 const messageAddProduct = ()=>{
     swal.fire({
+        icon: 'success',
         text:'Product Added',
         timer:1000
     })
@@ -88,6 +119,7 @@ const messageAddProduct = ()=>{
 
 const messageRemoveProduct = ()=>{
     swal.fire({
+        icon: 'warning',
         text:'Product Remove',
         timer:1000
     })
@@ -95,6 +127,7 @@ const messageRemoveProduct = ()=>{
 
 const messageNoProduct = ()=>{
     swal.fire({
+        icon: 'error',
         text:'Product no found',
         timer:1000
     })
