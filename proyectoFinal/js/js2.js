@@ -2,6 +2,8 @@ const divProducts = document.getElementById('productos')
 const botonFinalizar = document.querySelector('#finalizar')
 const thead = document.querySelector('thead')
 const tbody = document.querySelector('tbody')
+const sumaTotal = document.querySelector('#suma')
+
 let cart = []
 
 const fetchProducts = async () => {
@@ -67,6 +69,8 @@ const removeProduct = (id) => {
     console.log(cart);
 }
 
+
+let totalCompra =0
 const finalizarCompra = () => {
     divProducts.remove()
     botonFinalizar.remove()
@@ -79,15 +83,20 @@ const finalizarCompra = () => {
     </tr>`
 
     cart.forEach(prod => {
+        totalCompra+=prod.quantity*prod.price
         tbody.innerHTML += `
         <tr class="colorestr">
             <td>${prod.id}</td>
             <td>${prod.title}</td>
             <td>${prod.price}</td>
             <td>${prod.category}</td>
-            <td>${prod.quantity}</td>
+            <td>${prod.quantity*prod.price}</td>
+            
         </tr>`
     })
+    
+sumaTotal.innerHTML = `Total de compra es S/ ${totalCompra}`
+
 }
 
 renderProducts()
@@ -114,6 +123,14 @@ const messageNoProduct = ()=>{
     swal.fire({
         icon: 'error',
         text:'Product no found',
+        timer:1000
+    })
+}
+
+const messageTotalProduct = ()=>{
+    swal.fire({
+        icon: 'info',
+        text:'Product no found ${}',
         timer:1000
     })
 }
