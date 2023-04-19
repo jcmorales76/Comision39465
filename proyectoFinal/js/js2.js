@@ -66,7 +66,7 @@ const removeProduct = (id) => {
         messageRemoveProduct()
     }
 
-    console.log(cart);
+    //console.log(cart);
 }
 
 
@@ -90,10 +90,11 @@ const finalizarCompra = () => {
             <td>${prod.title}</td>
             <td>${prod.price}</td>
             <td>${prod.category}</td>
-            <td>${prod.quantity*prod.price}</td>
-            
+            <td>${prod.quantity*prod.price}</td>   
         </tr>`
+        messageTotalProduct()
     })
+    
     
 sumaTotal.innerHTML = `Total de compra es S/ ${totalCompra}`
 
@@ -103,11 +104,12 @@ renderProducts()
 
 botonFinalizar.onclick = finalizarCompra
 
+
 const messageAddProduct = ()=>{
     swal.fire({
         icon: 'success',
         text:'Product Added',
-        timer:1000
+        timer:800
     })
 }
 
@@ -115,7 +117,7 @@ const messageRemoveProduct = ()=>{
     swal.fire({
         icon: 'warning',
         text:'Product Remove',
-        timer:1000
+        timer:800
     })
 }
 
@@ -123,14 +125,15 @@ const messageNoProduct = ()=>{
     swal.fire({
         icon: 'error',
         text:'Product no found',
-        timer:1000
+        timer:800
     })
 }
 
 const messageTotalProduct = ()=>{
-    swal.fire({
+    Swal.fire({
         icon: 'info',
-        text:'Product no found ${}',
-        timer:1000
+        html: `<h3>LA suma total del Carrito de compras</h3>
+                ${totalCompra}`,
+        timer:1500
     })
 }
