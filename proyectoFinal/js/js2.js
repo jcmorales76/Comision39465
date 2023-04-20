@@ -24,8 +24,8 @@ const renderProducts = async () => {
         const { id, title, price, category, image } = prod
         divProducts.innerHTML += `
         <div class="card tamano">
-            <img src="${image}" class="card-img-top" alt="...">
-            <div class="card-body">
+            <img src="${image}" class="card-img-top p-2" alt="...">
+            <div class="card-body p-2">
                 <h5 class="card-title">${title}</h5>
                 <p class="card-text">${price} ${category}</p>
                 <button id:${id} onclick="addProduct(${id})">Agregar</button>
