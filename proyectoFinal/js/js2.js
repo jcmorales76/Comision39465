@@ -96,6 +96,7 @@ const finalizarCompra = () => {
 
   if (totalCompra === 0) {
     sumaTotal.innerHTML = `<== NO SE ENCONTRARON PRODUCTOS SELECCIONADOS ==> `;
+    messageSinProduct()
   } else {
     sumaTotal.innerHTML = `Total de compra es S/ ${totalCompra}`;
   }
@@ -137,3 +138,11 @@ const messageTotalProduct = () => {
     timer: 1500,
   });
 };
+
+const messageSinProduct = () => {
+    Swal.fire({
+      icon: "info",
+      text: "Productos no Encontrados", 
+      timer: 1500,
+    });
+  };
