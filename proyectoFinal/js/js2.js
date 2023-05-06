@@ -83,7 +83,8 @@ const finalizarCompra = () => {
         <th scope="col">TITLE</th>
         <th scope="col">PRICE</th>
         <th scope="col">CATEGORY</th>
-        <th scope="col">CANTIDAD</th>
+        <th scope="col">QUANTITY</th>
+        <th scope="col">TOTAL</th>
     </tr>`;
 
   cart.forEach((prod) => {
@@ -92,8 +93,9 @@ const finalizarCompra = () => {
         <tr class="colorestr">
             <td>${prod.id}</td>
             <td>${prod.title}</td>
-            <td>S/ ${prod.price}</td>
-            <td>${prod.category} UND </td>
+            <td>S/ ${prod.price} UND</td>
+            <td>${prod.category} </td>
+            <td>${prod.quantity}</td>
             <td>S/ ${prod.quantity * prod.price}</td>   
         </tr>`;
     messageTotalProduct();
@@ -103,7 +105,7 @@ const finalizarCompra = () => {
     sumaTotal.innerHTML = `<== NO SE ENCONTRARON PRODUCTOS SELECCIONADOS ==> `;
     messageSinProduct()
   } else {
-    sumaTotal.innerHTML = `Total de compra es S/ ${totalCompra.toFixed(2)}`;
+    sumaTotal.innerHTML = `Total de compra es S/ ${totalCompra.toFixed(2)} Soles Peruanos`;
   }
 };
 
@@ -140,7 +142,7 @@ const messageTotalProduct = () => {
     icon: "info",
     html: `<h3>LA suma total del Carrito de compras</h3>
                 S/ ${totalCompra.toFixed(2)}`,
-    timer: 1500,
+    timer: 3000,
   });
 };
 
