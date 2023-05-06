@@ -63,6 +63,7 @@ const removeProduct = (id) => {
   } else {
     if (searchProductCart.quantity === 1) {
       cart = cart.filter((prod) => prod.id !== id);
+
     } else {
       searchProductCart.quantity--;
     }
@@ -73,6 +74,7 @@ const removeProduct = (id) => {
 };
 
 let totalCompra = 0;
+
 const finalizarCompra = () => {
   divProducts.remove();
   botonFinalizar.remove();
@@ -90,9 +92,9 @@ const finalizarCompra = () => {
         <tr class="colorestr">
             <td>${prod.id}</td>
             <td>${prod.title}</td>
-            <td>${prod.price}</td>
-            <td>${prod.category}</td>
-            <td>${prod.quantity * prod.price}</td>   
+            <td>S/ ${prod.price}</td>
+            <td>${prod.category} UND </td>
+            <td>S/ ${prod.quantity * prod.price}</td>   
         </tr>`;
     messageTotalProduct();
   });
@@ -101,7 +103,7 @@ const finalizarCompra = () => {
     sumaTotal.innerHTML = `<== NO SE ENCONTRARON PRODUCTOS SELECCIONADOS ==> `;
     messageSinProduct()
   } else {
-    sumaTotal.innerHTML = `Total de compra es S/ ${totalCompra}`;
+    sumaTotal.innerHTML = `Total de compra es S/ ${totalCompra.toFixed(2)}`;
   }
 };
 
@@ -112,7 +114,7 @@ botonFinalizar.onclick = finalizarCompra;
 const messageAddProduct = () => {
   swal.fire({
     icon: "success",
-    text: "Product Added",
+    text: "Producto Anadido",
     timer: 800,
   });
 };
@@ -120,7 +122,7 @@ const messageAddProduct = () => {
 const messageRemoveProduct = () => {
   swal.fire({
     icon: "warning",
-    text: "Product Remove",
+    text: "Producto Removido",
     timer: 800,
   });
 };
@@ -128,7 +130,7 @@ const messageRemoveProduct = () => {
 const messageNoProduct = () => {
   swal.fire({
     icon: "error",
-    text: "Product no found",
+    text: "Producto no encontrado",
     timer: 800,
   });
 };
@@ -137,7 +139,7 @@ const messageTotalProduct = () => {
   Swal.fire({
     icon: "info",
     html: `<h3>LA suma total del Carrito de compras</h3>
-                ${totalCompra}`,
+                S/ ${totalCompra.toFixed(2)}`,
     timer: 1500,
   });
 };
