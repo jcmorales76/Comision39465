@@ -18,6 +18,7 @@ const fetchOneProduct = async (id) => {
   return productJSON;
 };
 
+
 const renderProducts = async () => {
   const products = await fetchProducts();
   products.forEach((prod) => {
@@ -36,6 +37,7 @@ const renderProducts = async () => {
   });
 };
 
+// Anadir productos
 const addProduct = async (id) => {
   const product = await fetchOneProduct(id);
   const searchProductCart = cart.find((prod) => prod.id === product.id);
@@ -53,6 +55,7 @@ const addProduct = async (id) => {
   messageAddProduct();
 };
 
+//Remover producto
 const removeProduct = (id) => {
   const searchProductCart = cart.find((prod) => prod.id === id);
   if (!searchProductCart) {
